@@ -1,11 +1,12 @@
-'''Make sure the placebo and typhoid scans are labeled correctly.'''
+"""Run fist level seed base funtional connectivity analysis
+
+Authors: Hao-Ting Wang
+Date: May 18, 2021
+"""
 import json
 import os
 import sys
 from pathlib import Path
-import pandas as pd
-import nibabel as nb
-import numpy as np
 from nilearn.reporting import make_glm_report
 
 from sbfc import model as sm

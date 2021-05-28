@@ -1,14 +1,13 @@
+"""Run two sample T-test
+
+Authors: Hao-Ting Wang
+Date: May 20, 2021
+"""
 import os
 from pathlib import Path
 import pandas as pd
-import nibabel as nb
-import numpy as np
 
-import matplotlib.pyplot as plt
-
-from nilearn import plotting
-from nilearn.datasets import fetch_icbm152_brain_gm_mask
-from nilearn.glm.second_level import SecondLevelModel, non_parametric_inference
+from nilearn.glm.second_level import SecondLevelModel
 from nilearn.glm.thresholding import threshold_stats_img
 from nilearn.reporting import make_glm_report
 
@@ -89,47 +88,3 @@ report = make_glm_report(
     cluster_threshold=100,
     )
 report.save_as_html(report_path)
-
-# the non parametric code is not working correctly
-
-# print("Fit non parametric models")
-# design_matrix = group_info[["Sex", "Age", "control", "patient"]]
-# contrasts = {
-#     "control":[0, 0, 1, 0,],
-#     "patient":[0, 0, 0, 1,],
-# }
-# # fit model
-# _ = group_level(
-#     input_imgs,
-#     design_matrix,
-#     contrasts,
-#     report_title,
-#     results_path,
-#     report_path)
-
-# # t test
-# design_matrix = group_info[["Sex", "Age"]]
-# design_matrix["control_wrt_patient"] = group_info["control"] - group_info["patient"]
-# contrasts = {
-#     "control_wrt_patient":[0, 0, 1],
-# }
-# _ = group_level(
-#     input_imgs,
-#     design_matrix,
-#     contrasts,
-#     report_title,
-#     results_path,
-#     report_path)
-
-# design_matrix = group_info[["Sex", "Age"]]
-# design_matrix["patient_wrt_control"] = group_info["patient"] - group_info["control"]
-# contrasts = {
-#     "patient_wrt_control":[0, 0, 1],
-# }
-# _ = group_level(
-#     input_imgs,
-#     design_matrix,
-#     contrasts,
-#     report_title,
-#     results_path,
-#     report_path)

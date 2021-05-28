@@ -1,4 +1,6 @@
-# python qsub wrapper
+# python qsub wrapper for any generic python script in this project
+# always execute this script at
+# /research/cisc1/projects/eccles_mcpf/functional_connectivity/analysis
 #
 #!/bin/bash
 #$ -N pythonjob

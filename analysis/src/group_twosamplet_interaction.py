@@ -1,15 +1,14 @@
+"""Run two sample T-test
+
+Authors: Hao-Ting Wang
+Date: May 20, 2021
+"""
 import os
 from pathlib import Path
 import pandas as pd
-import nibabel as nb
-import numpy as np
 
-import matplotlib.pyplot as plt
-
-from nilearn import plotting
-from nilearn.datasets import fetch_icbm152_brain_gm_mask
 from nilearn.glm.thresholding import threshold_stats_img
-from nilearn.glm.second_level import SecondLevelModel, non_parametric_inference
+from nilearn.glm.second_level import SecondLevelModel
 from nilearn.reporting import make_glm_report
 
 

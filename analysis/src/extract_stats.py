@@ -1,3 +1,8 @@
+"""Extract beta weight from first level contrast with group level significant clusters
+
+Authors: Hao-Ting Wang
+Date: May 17, 2021
+"""
 from pathlib import Path
 
 import nibabel as nb
@@ -5,6 +10,7 @@ from nilearn.image import math_img
 from nilearn.input_data import NiftiLabelsMasker
 from nilearn.regions import connected_label_regions
 import pandas as pd
+
 
 project_path = Path(__file__).parents[2]
 thresh_z_paths = [(project_path /

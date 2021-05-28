@@ -1,17 +1,13 @@
-import os
+"""Run one sample T-test to create session level contrast
+
+Authors: Hao-Ting Wang
+Date: May 20, 2021
+"""
 import sys
 from pathlib import Path
 import pandas as pd
-import nibabel as nb
-import numpy as np
 
-import matplotlib.pyplot as plt
-
-from nilearn import plotting
-from nilearn.datasets import fetch_icbm152_brain_gm_mask
-from nilearn.glm import cluster_level_inference
-from nilearn.glm.second_level import SecondLevelModel, non_parametric_inference
-from nilearn.reporting import make_glm_report
+from nilearn.glm.second_level import SecondLevelModel
 
 
 seed = Path(sys.argv[1])

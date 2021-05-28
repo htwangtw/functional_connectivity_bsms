@@ -1,4 +1,7 @@
-'''Make sure the placebo and typhoid scans are labeled correctly.'''
+'''Make sure the placebo and typhoid scans are labeled correctly.
+Authors: Hao-Ting Wang
+Date: May 28, 2021
+'''
 import json
 from pathlib import Path
 import pandas as pd

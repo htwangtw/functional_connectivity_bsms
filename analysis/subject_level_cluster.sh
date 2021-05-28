@@ -1,6 +1,6 @@
 # subject level seed-based conntectivity maps
 # always execute this script at
-# /research/cisc1/projects/eccles_mcpf/functional_connectivity
+# /research/cisc1/projects/eccles_mcpf/functional_connectivity/analysis
 #
 #
 #!/bin/bash
