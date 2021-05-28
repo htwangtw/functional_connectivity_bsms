@@ -1,0 +1,6 @@
+logs/
+sourcedata/
+results/
+atlas/
+analysis/group_design.csv
+analysis/scan_info.json

@@ -1,0 +1,15 @@
+name: sbfc
+channels:
+  - default
+  - conda-forge
+dependencies:
+  - python=3.7.*
+  - pip
+  - matplotlib
+  - pandas
+  - numpy
+  - nibabel
+  - ipython
+  - pip:
+    - nilearn
+    - git+https://github.com/htwangtw/sbfc.git
