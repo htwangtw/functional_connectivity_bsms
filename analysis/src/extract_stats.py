@@ -24,7 +24,7 @@ subject_stats_path = [
     [str(p) for p in project_path.glob("results/subject_level/sub-*/ses-placebo/icbm_insula_effect_size.nii.gz")]
     ]
 
-beta_weight = pd.read_csv(project_path / "analysis/group_design.csv", index_col=0)
+group_info = pd.read_csv(project_path / "analysis/group_design.csv", index_col=0)
 
 for map_path in thresh_z_paths:
     thresh_z = nb.load(str(map_path))
@@ -34,7 +34,7 @@ for map_path in thresh_z_paths:
     label_regions.to_filename(str(project_path / f"results/group_level/{analysis_name}_cluster_label.nii.gz"))
 
     masker = NiftiLabelsMasker(label_regions)
-
+    beta_weight = pd.read_csv(project_path / "analysis/group_design.csv", index_col=0)
     for ses in subject_stats_path:
         session_name = ses[0].split("ses-")[-1].split("/")[0]
         cluster_data = masker.fit_transform(ses)
@@ -43,8 +43,7 @@ for map_path in thresh_z_paths:
             for sub in ses
         ]
         data = pd.DataFrame(cluster_data, index=cisc_id)
-        col_name = [f"ses-{session_name}_{analysis_name}_cluster_{col + 1:02d}"for col in data.columns]
+        col_name = [f"ses-{session_name}_cluster_{col + 1:02d}"for col in data.columns]
         data.columns = col_name
         beta_weight = pd.concat([beta_weight, data], axis=1)
-
-beta_weight.to_csv(project_path / "results/group_level/insula_connectivity_beta_weight.csv")
+    beta_weight.to_csv(project_path / f"results/group_level/{analysis_name}_beta_weight.csv")
