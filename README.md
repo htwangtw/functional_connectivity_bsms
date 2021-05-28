@@ -14,5 +14,9 @@
 
 `conda activate sbfc`
 
+## Detailed methods
+
+Please see: [./Analysis/methods.md](./Analysis/methods.md)
+
 ## References
 https://nilearn.github.io/auto_examples/03_connectivity/plot_seed_to_voxel_correlation.html#sphx-glr-auto-examples-03-connectivity-plot-seed-to-voxel-correlation-py
