@@ -1,8 +1,7 @@
-# Analysis overview
+# Analysis directory overview
 
 ```bash
 analysis/
-├── reference/
 ├── src
 │   ├── create_roi.py
 │   ├── extract_stats.py
@@ -17,6 +16,10 @@ analysis/
 ├── scan_info.json
 └── subject_level_cluster.sh
 ```
+
+Each script in `src/` has a summary of what it does.
+
+For techncal summary, please see [`methods.md`](./methods.md)
 
 ## Run the existing scripts
 
