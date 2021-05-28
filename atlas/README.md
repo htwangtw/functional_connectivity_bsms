@@ -14,6 +14,6 @@ Binarised cerebellum mask from FSLeyes supplied `Cerebellum-MNIfnirt.nii.gz`.
 
 ## Why use this mask?
 
-Useing a gray matter mask constrains the analysis to regions with BOLD signals.
+Using a gray matter mask constrains the analysis to regions with BOLD signals.
 During data collection, brain stem and cerebellum are cut off for various subjects due to head size. 
 To reflect this constrain in the analysis, we used not only a gray matter mask, but one that removes the area with variability in missing data.
