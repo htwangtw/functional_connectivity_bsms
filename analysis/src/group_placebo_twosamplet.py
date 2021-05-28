@@ -37,7 +37,13 @@ def group_level(input_imgs, design_matrix, contrasts, title, results_path):
         print(con_name)
         z_map = group_level_model.compute_contrast(con, output_type='z_score')
         z_map.to_filename(str(results_path / f"{con_name}_zstat.nii.gz"))
-        thresh_z, _ = threshold_stats_img(z_map, gm_mask, alpha=0.01, cluster_threshold=100)
+        thresh_z, _ = threshold_stats_img(
+            z_map,
+            gm_mask,
+            height_control='fpr',
+            alpha=0.01,
+            cluster_threshold=100
+        )
         thresh_z.to_filename(str(results_path / f"{con_name}_thresh_zstat.nii.gz"))
     return group_level_model
 
@@ -84,6 +90,7 @@ report = make_glm_report(
     group_level_model,
     contrasts=contrasts,
     title=report_title,
+    height_control='fpr',
     alpha=0.01,
     cluster_threshold=100,
     )
