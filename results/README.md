@@ -30,7 +30,8 @@ results/
 Group level results are `group_level/<analysis_name>.html` for quick access.
 Significant custer label mask: `group_level/<analysis_name>_<contrast_name>_cluster_label.nii.gz`.
 Find the relevant threshould stats map: `group_level/<analysis_name>/<contrast_name>_thresh_zstat.nii.gz`
-Use**threshould stats map** for visualisation.
+Use **threshold stats map** for visualisation.
 
-For significant clusters of all analysis, the beta-weight (coefficient scores from the relevant first level contrast `<seed_name>_effect_size.nii.gz`) are stored in `group_level/insula_connectivity_beta_weight.csv`.
-These results can be used for further analysis.
+For significant clusters of all analysis, the beta-weight (coefficient scores from the relevant first level contrast `<seed_name>_effect_size.nii.gz`) are stored in `group_level/insula_connectivity_beta_weight.csv`. This is conceptually equivilant to [`FSL featquery`](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT/UserGuide#Featquery_-_FEAT_Results_Interrogation)
+
+These results can be used for further analysis, such as comparing between subjects, correlation with other variables.
