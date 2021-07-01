@@ -3,7 +3,7 @@
 Authors: Hao-Ting Wang
 Date: May 20, 2021
 """
-import os
+import os, sys
 from pathlib import Path
 import pandas as pd
 
@@ -12,12 +12,14 @@ from nilearn.glm.thresholding import threshold_stats_img
 from nilearn.reporting import make_glm_report
 
 
+seed = sys.argv[1]
+
 project_path = Path(__file__).parents[2]
 
-placebol_path = (project_path / "results/subject_level").glob("sub-*/ses-placebo/icbm_insula*effect_size.nii.gz")
-results_path = project_path / "results/group_level/icbm_insula_ses-placebo_patient_wrt_control"
-report_path = project_path / "results/icbm_insula_ses-placebo_patient_wrt_control.html"
-report_title = "Insula: Patients vs Controls in placebo session"
+placebol_path = (project_path / "results/subject_level").glob(f"sub-*/ses-placebo/{seed}*effect_size.nii.gz")
+results_path = project_path / f"results/group_level/{seed}_ses-placebo_patient_wrt_control"
+report_path = project_path / f"results/{seed}_ses-placebo_patient_wrt_control.html"
+report_title = f"{seed}: Patients vs Controls in placebo session"
 
 if not results_path.exists():
     os.makedirs(results_path)
@@ -40,9 +42,9 @@ def group_level(input_imgs, design_matrix, contrasts, title, results_path):
         thresh_z, _ = threshold_stats_img(
             z_map,
             gm_mask,
-            height_control='fpr',
-            alpha=0.01,
-            cluster_threshold=100
+            height_control='bonferroni',
+            alpha=0.05,
+            cluster_threshold=10
         )
         thresh_z.to_filename(str(results_path / f"{con_name}_thresh_zstat.nii.gz"))
     return group_level_model
@@ -90,8 +92,8 @@ report = make_glm_report(
     group_level_model,
     contrasts=contrasts,
     title=report_title,
-    height_control='fpr',
-    alpha=0.01,
-    cluster_threshold=100,
+    height_control='bonferroni',
+    alpha=0.05,
+    cluster_threshold=10,
     )
 report.save_as_html(report_path)
