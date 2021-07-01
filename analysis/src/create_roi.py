@@ -7,6 +7,7 @@ from pathlib import Path
 import numpy as np
 import nibabel as nb
 from nilearn.regions import connected_label_regions
+
 # from nilearn import plotting
 
 # define paths
@@ -35,15 +36,17 @@ def creat_roi_nifti(atlas_path, roi_path, glasser_index):
 
 
 if __name__ == "__main__":
-    creat_roi_nifti(atlas_path,
-                    atlas_dir / "icbm_insula-both.nii.gz",
-                    glasser_insula)
+    creat_roi_nifti(atlas_path, atlas_dir / "icbm_insula-both.nii.gz", glasser_insula)
     icbm_insula = connected_label_regions(
-        str(atlas_dir / "icbm_insula-both.nii.gz"),
-        min_size=500)
+        str(atlas_dir / "icbm_insula-both.nii.gz"), min_size=500
+    )
     icbm_insula.to_filename(atlas_dir / "icbm_insula-both.nii.gz")
-    creat_roi_nifti(atlas_dir / "icbm_insula.nii.gz", atlas_dir / "icbm_insula-R.nii.gz", [1])
-    creat_roi_nifti(atlas_dir / "icbm_insula.nii.gz", atlas_dir / "icbm_insula-L.nii.gz", [2])
-    creat_roi_nifti(atlas_path,
-                    atlas_dir / "icbm_cingulate_idx-161.nii.gz",
-                    glasser_cingulate)
+    creat_roi_nifti(
+        atlas_dir / "icbm_insula.nii.gz", atlas_dir / "icbm_insula-R.nii.gz", [1]
+    )
+    creat_roi_nifti(
+        atlas_dir / "icbm_insula.nii.gz", atlas_dir / "icbm_insula-L.nii.gz", [2]
+    )
+    creat_roi_nifti(
+        atlas_path, atlas_dir / "icbm_cingulate_idx-161.nii.gz", glasser_cingulate
+    )
