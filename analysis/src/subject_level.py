@@ -19,10 +19,12 @@ key = sys.argv[3]
 # generate path for outputs
 project_path = Path(__file__).parents[2]
 
-with open(project_path / 'analysis/scan_info.json', 'r') as f:
+with open(project_path / "analysis/scan_info.json", "r") as f:
     scan_info = json.load(f)
 seed_name = seed.name.split(".")[0]
-report_path = project_path / f"results/subject_level/sub-{sub_id}_ses-{key}_seed-{seed_name}.html"
+report_path = (
+    project_path / f"results/subject_level/sub-{sub_id}_ses-{key}_seed-{seed_name}.html"
+)
 output_path = project_path / f"results/subject_level/sub-{sub_id}/ses-{key}/"
 if not output_path.exists():
     os.makedirs(output_path)
@@ -52,5 +54,5 @@ make_glm_report(
     plot_type="glass",
     title=f"sub-{sub_id}_ses-{key}_seed-{seed_name}",
     alpha=0.001,
-    height_control='bonferroni'
-    ).save_as_html(report_path)
+    height_control="bonferroni",
+).save_as_html(report_path)
