@@ -3,7 +3,7 @@
 # /research/cisc1/projects/eccles_mcpf/functional_connectivity/analysis
 #
 #!/bin/bash
-#$ -N pythonjob
+#$ -N grouplevel
 #$ -o /research/cisc1/projects/eccles_mcpf/functional_connectivity/logs
 #$ -j y
 #$ -pe openmp 8

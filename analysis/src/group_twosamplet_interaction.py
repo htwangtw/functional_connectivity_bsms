@@ -17,10 +17,10 @@ seed = sys.argv[1]
 project_path = Path(__file__).parents[2]
 
 diff_path = (project_path / "results/subject_level").glob(
-    "sub-*/{seed}_typhoid_wrt_placebo_effect_size.nii.gz"
+    f"sub-*/{seed}_typhoid_wrt_placebo_effect_size.nii.gz"
 )
-results_path = project_path / "results/group_level/{seed}_double_twosample_t"
-report_path = project_path / "results/{seed}_double_twosample_t.html"
+results_path = project_path / f"results/group_level/{seed}_double_twosample_t"
+report_path = project_path / f"results/{seed}_double_twosample_t.html"
 report_title = f"{seed}: Patients vs Controls when typhoid > placebo"
 
 if not results_path.exists():
