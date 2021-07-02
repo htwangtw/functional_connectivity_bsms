@@ -3,6 +3,7 @@
 Authors: Hao-Ting Wang
 Date: May 17, 2021
 """
+import sys
 from pathlib import Path
 
 import nibabel as nb
@@ -12,15 +13,17 @@ from nilearn.regions import connected_label_regions
 import pandas as pd
 
 
+seed = sys.argv[1]
+
 project_path = Path(__file__).parents[2]
 thresh_z_paths = [
     (
         project_path
-        / "results/group_level/icbm_insula_ses-placebo_patient_wrt_control/control_wrt_patient_thresh_zstat.nii.gz"
+        / f"results/group_level/{seed}_ses-placebo_patient_wrt_control/control_wrt_patient_thresh_zstat.nii.gz"
     ),
     (
         project_path
-        / "results/group_level/icbm_insula_double_twosample_t/placebol_wrt_typhoid_thresh_zstat.nii.gz"
+        / f"results/group_level/{seed}_double_twosample_t/placebol_wrt_typhoid_thresh_zstat.nii.gz"
     ),
 ]
 
@@ -28,13 +31,13 @@ subject_stats_path = [
     [
         str(p)
         for p in project_path.glob(
-            "results/subject_level/sub-*/ses-typhoid/icbm_insula_effect_size.nii.gz"
+            f"results/subject_level/sub-*/ses-typhoid/{seed}_effect_size.nii.gz"
         )
     ],
     [
         str(p)
         for p in project_path.glob(
-            "results/subject_level/sub-*/ses-placebo/icbm_insula_effect_size.nii.gz"
+            f"results/subject_level/sub-*/ses-placebo/{seed}_effect_size.nii.gz"
         )
     ],
 ]
