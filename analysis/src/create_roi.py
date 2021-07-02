@@ -42,10 +42,10 @@ if __name__ == "__main__":
     )
     icbm_insula.to_filename(atlas_dir / "icbm_insula-both.nii.gz")
     creat_roi_nifti(
-        atlas_dir / "icbm_insula.nii.gz", atlas_dir / "icbm_insula-R.nii.gz", [1]
+        atlas_dir / "icbm_insula-both.nii.gz", atlas_dir / "icbm_insula-R.nii.gz", [1]
     )
     creat_roi_nifti(
-        atlas_dir / "icbm_insula.nii.gz", atlas_dir / "icbm_insula-L.nii.gz", [2]
+        atlas_dir / "icbm_insula-both.nii.gz", atlas_dir / "icbm_insula-L.nii.gz", [2]
     )
     creat_roi_nifti(
         atlas_path, atlas_dir / "icbm_cingulate_idx-161.nii.gz", glasser_cingulate
