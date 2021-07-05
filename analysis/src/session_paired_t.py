@@ -10,7 +10,7 @@ import pandas as pd
 from nilearn.glm.second_level import SecondLevelModel
 
 
-seed = Path(sys.argv[1])
+seed = sys.argv[1]
 subject = sys.argv[2]
 
 project_path = Path(__file__).parents[1]
