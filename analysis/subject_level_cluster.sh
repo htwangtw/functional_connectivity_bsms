@@ -49,7 +49,7 @@ python "${PROJECT_PATH}/analysis/src/subject_level.py" ${PCC} ${SUBJECT} placebo
 python "${PROJECT_PATH}/analysis/src/subject_level.py" ${PCC} ${SUBJECT} typhoid
 
 # Session level contrast
-python "${PROJECT_PATH}/scripts/src/session_paired_t.py" difumo64_pcc ${SUBJECT}
-python "${PROJECT_PATH}/scripts/src/session_paired_t.py" icbm_cingulate_idx-161 ${SUBJECT}
-python "${PROJECT_PATH}/scripts/src/session_paired_t.py" icbm_insula-L ${SUBJECT}
-python "${PROJECT_PATH}/scripts/src/session_paired_t.py" icbm_insula-R ${SUBJECT}
+python "${PROJECT_PATH}/analysis/src/session_paired_t.py" difumo64_pcc ${SUBJECT}
+python "${PROJECT_PATH}/analysis/src/session_paired_t.py" icbm_cingulate_idx-161 ${SUBJECT}
+python "${PROJECT_PATH}/analysis/src/session_paired_t.py" icbm_insula-L ${SUBJECT}
+python "${PROJECT_PATH}/analysis/src/session_paired_t.py" icbm_insula-R ${SUBJECT}
