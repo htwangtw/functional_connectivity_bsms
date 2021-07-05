@@ -13,7 +13,7 @@ from nilearn.glm.second_level import SecondLevelModel
 seed = sys.argv[1]
 subject = sys.argv[2]
 
-project_path = Path(__file__).parents[1]
+project_path = Path(__file__).parents[2]
 
 print(subject)
 results_path = project_path / f"results/subject_level/sub-{subject}"
