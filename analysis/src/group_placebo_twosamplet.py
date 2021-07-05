@@ -13,8 +13,14 @@ from nilearn.reporting import make_glm_report
 
 
 seed = sys.argv[1]
+multiple_comparison = sys.argv[2]
 
 project_path = Path(__file__).parents[2]
+
+alpha = {
+    "bonferroni": 0.05,
+    "fpr": 0.001
+}
 
 placebol_path = (project_path / "results/subject_level").glob(
     f"sub-*/ses-placebo/{seed}*effect_size.nii.gz"
@@ -44,8 +50,8 @@ def group_level(input_imgs, design_matrix, contrasts, title, results_path):
         thresh_z, _ = threshold_stats_img(
             z_map,
             gm_mask,
-            height_control="bonferroni",
-            alpha=0.05,
+            height_control=multiple_comparison,
+            alpha=alpha[multiple_comparison],
             cluster_threshold=10,
         )
         thresh_z.to_filename(str(results_path / f"{con_name}_thresh_zstat.nii.gz"))
@@ -100,8 +106,8 @@ report = make_glm_report(
     group_level_model,
     contrasts=contrasts,
     title=report_title,
-    height_control="bonferroni",
-    alpha=0.05,
+    height_control=multiple_comparison,
+    alpha=alpha[multiple_comparison],
     cluster_threshold=10,
 )
 report.save_as_html(report_path)

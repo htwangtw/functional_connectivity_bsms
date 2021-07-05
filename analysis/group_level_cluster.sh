@@ -16,13 +16,13 @@ source activate sbfc
 
 PROJECT_PATH=/research/cisc1/projects/eccles_mcpf/functional_connectivity
 
-python ${PROJECT_PATH}/analysis/src/group_placebo_twosamplet.py icbm_insula-L
-python ${PROJECT_PATH}/analysis/src/group_placebo_twosamplet.py icbm_insula-R
-python ${PROJECT_PATH}/analysis/src/group_placebo_twosamplet.py icbm_cingulate_idx-161
-python ${PROJECT_PATH}/analysis/src/group_placebo_twosamplet.py difumo64_pcc
+python ${PROJECT_PATH}/analysis/src/group_placebo_twosamplet.py icbm_insula-L fpr
+python ${PROJECT_PATH}/analysis/src/group_placebo_twosamplet.py icbm_insula-R fpr
+python ${PROJECT_PATH}/analysis/src/group_placebo_twosamplet.py icbm_cingulate_idx-161 fpr
+python ${PROJECT_PATH}/analysis/src/group_placebo_twosamplet.py difumo64_pcc fpr
 
 echo "-----------interaction-----------"
-python ${PROJECT_PATH}/analysis/src/group_twosamplet_interaction.py icbm_insula-L
-python ${PROJECT_PATH}/analysis/src/group_twosamplet_interaction.py icbm_insula-R
-python ${PROJECT_PATH}/analysis/src/group_twosamplet_interaction.py icbm_cingulate_idx-161
-python ${PROJECT_PATH}/analysis/src/group_twosamplet_interaction.py difumo64_pcc
+python ${PROJECT_PATH}/analysis/src/group_twosamplet_interaction.py icbm_insula-L fpr
+python ${PROJECT_PATH}/analysis/src/group_twosamplet_interaction.py icbm_insula-R fpr
+python ${PROJECT_PATH}/analysis/src/group_twosamplet_interaction.py icbm_cingulate_idx-161 fpr
+python ${PROJECT_PATH}/analysis/src/group_twosamplet_interaction.py difumo64_pcc fpr
