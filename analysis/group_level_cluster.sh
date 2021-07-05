@@ -21,6 +21,7 @@ python ${PROJECT_PATH}/analysis/src/group_placebo_twosamplet.py icbm_insula-R
 python ${PROJECT_PATH}/analysis/src/group_placebo_twosamplet.py icbm_cingulate_idx-161
 python ${PROJECT_PATH}/analysis/src/group_placebo_twosamplet.py difumo64_pcc
 
+echo "-----------interaction-----------"
 python ${PROJECT_PATH}/analysis/src/group_twosamplet_interaction.py icbm_insula-L
 python ${PROJECT_PATH}/analysis/src/group_twosamplet_interaction.py icbm_insula-R
 python ${PROJECT_PATH}/analysis/src/group_twosamplet_interaction.py icbm_cingulate_idx-161

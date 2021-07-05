@@ -37,7 +37,6 @@ def group_level(input_imgs, design_matrix, contrasts, title, results_path):
     print("fit parametric model")
     group_level_model = group_level_model.fit(input_imgs, design_matrix=design_matrix)
 
-    z_map_paths = []
     for con_name, con in contrasts.items():
         print(con_name)
         z_map = group_level_model.compute_contrast(con, output_type="z_score")
@@ -74,7 +73,6 @@ design_matrix.to_csv(results_path / "two-sample-t-test_design-matrix.csv")
 
 # generate parametric report
 input_imgs = group_info["effects_map_path"].tolist()
-
 print("generate parametric report")
 design_matrix = group_info[["Sex", "Age", "control", "patient"]]
 contrasts = {

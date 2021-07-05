@@ -7,8 +7,8 @@ import os, sys
 from pathlib import Path
 import pandas as pd
 
-from nilearn.glm.thresholding import threshold_stats_img
 from nilearn.glm.second_level import SecondLevelModel
+from nilearn.glm.thresholding import threshold_stats_img
 from nilearn.reporting import make_glm_report
 
 
@@ -59,14 +59,13 @@ for file in diff_path:
         [subject_label, effects_map_path], index=["subject_label", "effects_map_path"]
     ).T
     second_level_input = pd.concat([second_level_input, df], axis=0)
-second_level_input = second_level_input.set_index("subject_label")
+second_level_input = second_level_input.set_index("subject_label").sort_index()
 
 # create design matrix
 group_info = pd.read_csv(project_path / "analysis/group_design.csv", index_col=0)
 group_info.index = group_info.index.map(str)
 group_info = pd.concat([second_level_input, group_info], axis=1)
 group_info.to_csv(results_path / "inputs.csv")
-
 design_matrix = group_info[["Sex", "Age", "control", "patient"]]
 design_matrix.to_csv(results_path / "two-sample-t-test_design-matrix.csv")
 
