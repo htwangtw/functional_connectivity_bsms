@@ -20,7 +20,7 @@ contrast = sys.argv[3]
 project_path = Path(__file__).parents[2]
 
 # threshold with
-thresh_z_path = project_path / f"results/group_level/{seed}_{analysis}/{contrast}.nii.gz"
+thresh_z_path = project_path / f"results/group_level/{seed}_{analysis}/{contrast}_thresh_zstat.nii.gz"
 
 
 subject_stats_path = [
