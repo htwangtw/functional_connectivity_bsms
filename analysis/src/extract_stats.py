@@ -41,7 +41,7 @@ subject_stats_path = [
 group_info = pd.read_csv(project_path / "analysis/group_design.csv", index_col=0)
 
 thresh_z = nb.load(str(thresh_z_path))
-bin_cluster = math_img("(img > 0).astype(int)", img=thresh_z)
+bin_cluster = math_img("(np.abs(img) > 0).astype(int)", img=thresh_z)
 label_regions = connected_label_regions(bin_cluster)
 label_regions.to_filename(
     str(project_path / f"results/group_level/{seed}_{analysis}/{contrast}_cluster_label.nii.gz")
