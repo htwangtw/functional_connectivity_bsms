@@ -41,15 +41,17 @@ qsub subject_level_cluster.sh
 
 ```bash
 cd /research/cisc1/projects/eccles_mcpf/functional_connectivity/analysis
-qsub python_qsub_wrapper.sh src/group_placebo_twosamplet.py
-qsub python_qsub_wrapper.sh src/group_twosamplet_interaction.py
+qsub group_level_cluster.sh
 ```
 
 - Extract significant clusters of the two analysis above
 
 ```bash
 cd /research/cisc1/projects/eccles_mcpf/functional_connectivity/analysis
-python extract_stats.py
+python src/extract_stats.py <seed_name> <session-name> <contrast-name>
+
+# or
+qsub extract_beta_weights.py
 ```
 
 ## Notes from Marisa to Hao-Ting
